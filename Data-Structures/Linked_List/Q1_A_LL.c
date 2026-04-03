@@ -91,6 +91,39 @@ int main()
 int insertSortedLL(LinkedList *ll, int item)
 {
 	/* 여기에 코드를 작성하세요 */
+	ListNode *cur, *prev, *newNode;
+	if (ll == NULL){
+		return 0;
+	}
+
+	cur = ll->head;
+	prev = NULL;
+	int index =0;
+
+	newNode = (ListNode*)malloc(sizeof(ListNode));
+
+	while (cur != NULL && cur->item < item){
+		index++;
+		prev = cur;
+		cur = cur -> next;		
+	}
+
+	if (cur != NULL && cur->item == item){
+		return -1;
+	}
+
+	newNode->item = item;
+	newNode->next = cur;
+
+	if(prev==NULL){
+		ll->head=newNode;
+	}
+	else{
+		prev->next = newNode;
+	}
+	return index;
+
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
