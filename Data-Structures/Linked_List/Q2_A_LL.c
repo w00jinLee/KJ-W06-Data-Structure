@@ -96,7 +96,7 @@ int main()
 			break;
 		}
 	}
-	return 0;
+	return 0; 
 }
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -104,6 +104,15 @@ int main()
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
     /* 여기에 코드를 작성하세요 */
+
+	int index = 1;
+
+	while (ll2->size> 0 && index <= ll1->size) {
+		insertNode(ll1, index, ll2->head->item);
+		removeNode(ll2, 0);
+		index += 2;
+	}
+	
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
