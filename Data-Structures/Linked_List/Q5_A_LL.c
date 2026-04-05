@@ -39,6 +39,7 @@ int removeNode(LinkedList *ll, int index);
 int main()
 {
 	int c, i;
+	c=1;
 	LinkedList ll;
 	LinkedList resultFrontList, resultBackList;
 
@@ -103,6 +104,28 @@ int main()
 void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, LinkedList *resultBackList)
 {
 	/* 여기에 코드를 작성하세요 */
+
+	ListNode *cur;	
+	int halfIndex=0;
+	if((ll->size % 2) == 1){
+		halfIndex = ll->size/2 +1;
+	}
+	else{
+		halfIndex = ll->size/2;
+	}
+	// size가 5면 half는 2+1 =3 
+
+
+	for(int i = 0; i < ll->size; i++){
+		cur = findNode(ll, i);
+		int curItem = cur->item;
+		if(i < halfIndex){
+			insertNode(resultFrontList, resultFrontList->size, curItem);
+		}
+		else{
+			insertNode(resultBackList, resultBackList->size, curItem);
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
