@@ -87,6 +87,28 @@ int main()
 void moveEvenItemsToBack(LinkedList *ll)
 {
 	/* 여기에 코드를 작성하세요 */
+	ListNode *cur;
+	int index=0;
+	int evenCount=0;
+
+
+	while(index < ll->size - evenCount){
+		cur = findNode(ll, index);
+
+		if((cur->item % 2) == 0){
+			int curItem = cur->item;
+			removeNode(ll, index);
+			insertNode(ll, ll->size, curItem);
+			evenCount++;
+		}
+		else{
+			index++;
+		}
+
+
+	}
+
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
