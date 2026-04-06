@@ -131,8 +131,6 @@ void createStackFromLinkedList(LinkedList *ll, Stack *s)
 void removeEvenValues(Stack *s)
 {
 	/* 여기에 코드를 작성하세요 */
-	ListNode *cur;
-	cur = s->ll.head;
 	int size = s->ll.size;
 	int value;
 	int arr[size];
