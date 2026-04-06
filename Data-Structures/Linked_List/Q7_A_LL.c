@@ -88,6 +88,22 @@ int main()
 void RecursiveReverse(ListNode **ptrHead)
 {
 	/* 여기에 코드를 작성하세요 */
+
+	if (ptrHead == NULL || *ptrHead == NULL){// 포인터가 NULL을 가르키거나 리스트가 비어있는지 확인
+		return;
+	}
+	if ((*ptrHead)->next == NULL){
+		return;
+	}
+
+	ListNode *temp = (*ptrHead)->next;
+
+	RecursiveReverse(&temp);
+
+	(*ptrHead)->next->next = *ptrHead;
+	(*ptrHead)->next = NULL;	
+	(*ptrHead) = temp; 
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////
