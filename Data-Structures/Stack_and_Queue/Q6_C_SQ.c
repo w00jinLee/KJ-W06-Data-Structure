@@ -112,6 +112,13 @@ int main()
 void removeUntil(Stack *s, int value)
 {
 /* 여기에 코드를 작성하세요 */
+	if (s==NULL){
+		return;
+	}
+	while(!isEmptyStack(s) && peek(s) != value){
+		pop(s);
+	}
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////
