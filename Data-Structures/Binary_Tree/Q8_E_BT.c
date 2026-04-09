@@ -103,6 +103,22 @@ int main()
 int hasGreatGrandchild(BTNode *node)
 {
 	/* 여기에 코드를 작성하세요 */
+    if (node == NULL){
+        return 0;
+    }
+    if (node->left == NULL && node->right == NULL){
+        return 1;
+    }
+    // 왼쪽, 오른쪽 탐색
+    int leftDepth = hasGreatGrandchild(node->left);
+    int rightDepth = hasGreatGrandchild(node->right);
+    int depth = leftDepth >= rightDepth ? leftDepth +1 : rightDepth + 1;
+
+    if(depth >= 4){
+        printf("%d ", node->item);
+    }
+
+    return depth;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
