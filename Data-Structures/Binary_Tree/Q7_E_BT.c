@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <limits.h>
 //////////////////////////////////////////////////////////////////////////////////
 
 typedef struct _btnode
@@ -103,6 +103,26 @@ int main()
 int smallestValue(BTNode *node)
 {
 	/* 여기에 코드를 작성하세요 */
+    if (node == NULL){
+        return INT_MAX;
+    }
+
+    int min = node->item;
+
+    if(node->left != NULL){
+        int leftValue = smallestValue(node->left);
+        if(min >= leftValue){
+            min = leftValue;
+        }
+    }
+    if(node->right != NULL){
+        int rightValue = smallestValue(node->right);
+        if(min >= rightValue){
+            min = rightValue;
+        }
+    }
+
+    return min;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
