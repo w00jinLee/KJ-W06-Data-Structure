@@ -104,6 +104,16 @@ int sumOfOddNodes(BTNode *node)
 
 {
     /* 여기에 코드를 작성하세요 */
+    if (node == NULL){
+        return 0;
+    }
+    
+    if(node->item % 2 != 0){
+        return sumOfOddNodes(node->left) + sumOfOddNodes(node->right) + node->item;
+    }
+    else{
+        return sumOfOddNodes(node->left) + sumOfOddNodes(node->right);
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////
